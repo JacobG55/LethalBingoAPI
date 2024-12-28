@@ -30,7 +30,7 @@ namespace LethalBingoAPI
                 if (enemy is NutcrackerEnemyAI nutcracker && nutcracker.isOutside)
                 {
                     challenge.Add();
-                    return challenge.Get() >= 5;
+                    return challenge.GetCount() >= 5;
                 }
                 return false;
             }, 0));

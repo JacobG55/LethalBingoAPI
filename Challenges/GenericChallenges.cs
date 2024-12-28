@@ -18,7 +18,7 @@ namespace LethalBingoAPI.Challenges
         }
         public void Remove(int id = 0, int value = 1) => Add(id, -value);
         public bool InBounds(int value) => value >= 0 && value < counters.Length;
-        public int Get(int id = 0)
+        public int GetCount(int id = 0)
         {
             if (InBounds(id)) return counters[id];
             else return 0;

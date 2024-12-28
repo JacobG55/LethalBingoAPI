@@ -12,7 +12,7 @@ namespace LethalBingoAPI.Board
 
         public static bool RegisterChallenge(string id, Challenge challenge)
         {
-            return Challenges.TryAdd(id, challenge);
+            return Challenges.TryAdd(id.MakeValidId(), challenge);
         }
 
         public static void GenerateBoard()
