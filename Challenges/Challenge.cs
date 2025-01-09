@@ -6,7 +6,6 @@
         public string description = description;
         public virtual bool Success() => true;
         public abstract void Reset();
-
         public bool Check<T1>(T1 val1)
         {
             if (this is GenericChallenge<T1> generic)
@@ -21,7 +20,7 @@
             {
                 return generic.Check(generic, val1, val2);
             }
-            return false;
+            return Check(val1);
         }
         public bool Check<T1, T2, T3>(T1 val1, T2 val2, T3 val3)
         {
@@ -29,7 +28,7 @@
             {
                 return generic.Check(generic, val1, val2, val3);
             }
-            return false;
+            return Check(val1, val2);
         }
         public bool Check<T1, T2, T3, T4>(T1 val1, T2 val2, T3 val3, T4 val4)
         {
@@ -37,7 +36,7 @@
             {
                 return generic.Check(generic, val1, val2, val3, val4);
             }
-            return false;
+            return Check(val1, val2, val3);
         }
         public bool Check<T1, T2, T3, T4, T5>(T1 val1, T2 val2, T3 val3, T4 val4, T5 val5)
         {
@@ -45,7 +44,7 @@
             {
                 return generic.Check(generic, val1, val2, val3, val4, val5);
             }
-            return false;
+            return Check(val1, val2, val3, val4);
         }
         public bool Check<T1, T2, T3, T4, T5, T6>(T1 val1, T2 val2, T3 val3, T4 val4, T5 val5, T6 val6)
         {
@@ -53,7 +52,23 @@
             {
                 return generic.Check(generic, val1, val2, val3, val4, val5, val6);
             }
-            return false;
+            return Check(val1, val2, val3, val4, val5);
+        }
+        public bool Check<T1, T2, T3, T4, T5, T6, T7>(T1 val1, T2 val2, T3 val3, T4 val4, T5 val5, T6 val6, T7 val7)
+        {
+            if (this is GenericChallenge<T1, T2, T3, T4, T5, T6, T7> generic)
+            {
+                return generic.Check(generic, val1, val2, val3, val4, val5, val6, val7);
+            }
+            return Check(val1, val2, val3, val4, val5, val6);
+        }
+        public bool Check<T1, T2, T3, T4, T5, T6, T7, T8>(T1 val1, T2 val2, T3 val3, T4 val4, T5 val5, T6 val6, T7 val7, T8 val8)
+        {
+            if (this is GenericChallenge<T1, T2, T3, T4, T5, T6, T7, T8> generic)
+            {
+                return generic.Check(generic, val1, val2, val3, val4, val5, val6, val7, val8);
+            }
+            return Check(val1, val2, val3, val4, val5, val6, val7);
         }
     }
 }
